@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+https://api.github.com/repos/JamesTheButler/Cube-Fusion-Client/contents/
+-->
+
+
 <head>
 
   <meta charset="utf-8">
@@ -15,7 +20,107 @@
 
   <!-- Custom styles for this template -->
   <link href="css/heroic-features.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
 
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	var userName = "JamesTheButler"	
+	
+	function createRepoContent(contentObject){		
+		var mainDivTemplate = document.getElementsByTagName("template")[0]
+		var mainDivClone = mainDivTemplate.content.cloneNode(true);
+		
+		mainDivClone.querySelector("h4#project_name").textContent = contentObject.name
+		mainDivClone.querySelector("p#project_description").textContent = contentObject.desc
+		mainDivClone.querySelector("img#repo-image").src = contentObject.img_url
+		//mainDivClone.querySeletor("div#tags").textContent = contentObject.tags
+		
+		var linkButtonTemplate = document.getElementsByTagName("template")[1]
+		
+		for(var key in contentObject.links){
+			var linkButtonClone = linkButtonTemplate.content.cloneNode(true);
+			linkButtonClone.querySelector("a#link-button").href = contentObject.links[key].href_link
+			linkButtonClone.querySelector("a#link-button").textContent = contentObject.links[key].href_name
+			
+			mainDivClone.querySelector("div#link-buttons").appendChild(linkButtonClone)
+		}
+		
+		document.getElementById("repo-content").appendChild(mainDivClone)
+		
+	}
+	
+	function loadRepoContent(){
+		// get all public repos
+		var allRepos = JSON.parse(httpGet("https://api.github.com/users/"+userName+"/repos"))
+		
+		// read data	
+		var repoDict = {}
+		for(var i=0; i < allRepos.length; i++){
+			// find urls
+			var apiUrl = allRepos[i].url
+			var htmlUrl = allRepos[i].html_url
+			// find githubio.json
+			var githubioJsonData = JSON.parse(httpGet(apiUrl+"/contents/githubio.json"))			
+			
+			if(githubioJsonData.message != "Not Found"){
+				$('#RepoInfo').append(allRepos[i].url + "<br>" + atob(githubioJsonData.content) + "<br>------<br>")
+				// read actual content of githubio.json 
+				console.log("parsing "+allRepos[i].url+"+...")
+				var githubioContent = JSON.parse(atob(githubioJsonData.content))
+				
+				if(!(githubioContent.project_id in repoDict)){
+				repoDict[githubioContent.project_id] = 
+						{name : "",
+						desc : "", 
+						img_url : "",
+						tags : "",
+						links : []}
+				}
+				// main project
+				if("project_name" in githubioContent){
+					repoDict[githubioContent.project_id].name = githubioContent.project_name
+					repoDict[githubioContent.project_id].desc = githubioContent.project_description
+					// set up image url
+					var url = htmlUrl + "/blob/master/"+ githubioContent.image_uri+ "?raw=true"
+					console.log(url)
+					repoDict[githubioContent.project_id].img_url = url
+					// set up tags
+					repoDict[githubioContent.project_id].tags = githubioContent.tags
+					repoDict[githubioContent.project_id].links.push({href_link : htmlUrl, href_name : githubioContent.href_name})
+				} // secondary project
+				else { 	
+					repoDict[githubioContent.project_id].links.push({href_link : htmlUrl, href_name : githubioContent.href_name})
+				}			
+			} else {
+				console.log("Project has no githubio.json in root directory on master branch: " + htmlUrl)
+			}
+			//result += allRepos[i].html_url + "\n"
+		}
+		
+		// output collected data
+		console.log("repos\n")
+		for(var key in repoDict){
+			createRepoContent(repoDict[key])
+		}
+	}
+	
+	$(document).ready(function() {
+		loadRepoContent()		
+		//loadRepoContentAsync()
+	})
+
+	function httpGet(theUrl){
+		var xmlHttp = new XMLHttpRequest()
+		xmlHttp.open( "GET", theUrl, false ) // false for synchronous request
+		xmlHttp.send( null )
+		return xmlHttp.responseText
+	}
+	
+	
+	</script>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg">
 </head>
 
 <body>
@@ -53,105 +158,47 @@
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-      <h1 class="display-3">Tom Ille</h1>
-      <p class="lead">I am a game design student.</p>
+      <h1 class="display-3">
+		<img class="avatar" src="media/img_avatar.png" alt="Avatar" width="125px">
+		Tom Ille
+	  </h1>
+      <p class="lead">I am a newly graduated game design student from Germany. I love programming, software engineering and game development and I am looking for a chance to get into the exciting game development industry.</p>
     </header>
 
     <!-- Page Features -->
-    <div class="row text-center">
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary" style="margin: 5px">Find Out More!</a>
-          </div>
-        </div>
-      </div>
+    <div class="row text-center" id="repo-content">    </div>
+</div>
+  
+<!-- templates --> 
+<template>
+<div class="col-lg-3 col-md-6 mb-4" >
+	<div class="card h-100">
+		<img class="card-img-top" id="repo-image" src="" alt="">
+		<div class="card-body">
+			<h4 class="card-title" id="project_name"></h4>
+			<p class="card-text" id="project_description"></p>
+		</div>
+		<div class="card-footer" id="link-buttons">
+		</div>
+	</div>
+</div>
+</template>
 
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary" style="margin: 5px">Find Out More!</a>
-          </div>
-        </div>
-      </div>
+<template>
+<a href="" class="btn btn-primary" id="link-button" style="margin: 5px"></a>
+</template>
 
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary" style="margin: 5px">Find Out More!</a>
-          </div>
-        </div>
-      </div>
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+<div class="container">
+  <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+</div>
+<!-- /.container -->
+</footer>
 
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary" style="margin: 5px">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-	  <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary" style="margin: 5px">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-	  <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer ">
-            <a href="#" class="btn btn-primary" style="margin: 5px">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <!-- /.row -->
-
-  </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
