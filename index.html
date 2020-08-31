@@ -32,6 +32,7 @@ https://api.github.com/repos/JamesTheButler/Cube-Fusion-Client/contents/
 		var mainDivClone = mainDivTemplate.content.cloneNode(true);
 		
 		mainDivClone.querySelector("h4#project_name").textContent = contentObject.name
+		mainDivClone.querySelector("p#project_tags").textContent = contentObject.tags
 		mainDivClone.querySelector("p#project_description").textContent = contentObject.desc
 		mainDivClone.querySelector("img#repo-image").src = contentObject.img_url
 		//mainDivClone.querySeletor("div#tags").textContent = contentObject.tags
@@ -176,6 +177,7 @@ https://api.github.com/repos/JamesTheButler/Cube-Fusion-Client/contents/
 		<img class="card-img-top" id="repo-image" src="" alt="">
 		<div class="card-body">
 			<h4 class="card-title" id="project_name"></h4>
+			<p class="card-text tag-list small" id="project_tags"></p>
 			<p class="card-text" id="project_description"></p>
 		</div>
 		<div class="card-footer" id="link-buttons">
