@@ -1,0 +1,104 @@
+{
+    "projects": [
+        {
+            "project_id": "CubeFusion",
+            "project_name": "Cube Fusion",
+            "project_description": "A two-player cooperative puzzle game that teaches children the basic approach to programming. Consists of one project for the server and one project for the client devices.",
+            "image_uri": "media/cubefusion.gif",
+            "tags": [
+                {
+                    "tag_name": "Unity3D"
+                },
+                {
+                    "tag_name": "C#"
+                },
+                {
+                    "tag_name": "Networking"
+                }
+            ],
+            "links": [
+                {
+                    "link_name": "Server",
+                    "link_href": "https://github.com/JamesTheButler/Cube-Fusion-Server"
+                },
+                {
+                    "link_name": "Client",
+                    "link_href": "https://github.com/JamesTheButler/Cube-Fusion-Client"
+                }
+            ]
+        },
+        {
+            "project_id": "MasterThesis",
+            "project_name": "Master Thesis: Real-time Plastic Deformation",
+            "project_description": "The prototype that was developed as part of my master thesis in Game Design and Technology. Consists of a Unity project and a deformation library.",
+            "tags": [
+                {
+                    "tag_name": "Unity3D"
+                },
+                {
+                    "tag_name": "C#"
+                },
+                {
+                    "tag_name": "C++"
+                },
+                {
+                    "tag_name": "Multithreading"
+                },
+                {
+                    "tag_name": "Physics Based Simuilation"
+                }
+            ],
+            "image_uri": "media/MasterThesis.png",
+            "links": [
+                {
+                    "link_name": "Project",
+                    "link_href": "https://github.com/JamesTheButler/MasterThesisPrototype"
+                },
+                {
+                    "link_name": "Deformation Library",
+                    "link_href": "https://github.com/JamesTheButler/PlasticDeformationDLL"
+                }
+            ]
+        },
+		{
+            "project_id": "TimePilot",
+            "project_name": "Time Pilot",
+            "project_description": "A modern implementation of the 80s classic.",
+            "image_uri": "media/TimePilot.gif",
+            "tags": [
+                {
+                    "tag_name": "Game Engine Architecture"
+                },
+                {
+                    "tag_name": "C++"
+                }
+            ],
+            "links": [
+                {
+                    "link_name": "Project",
+                    "link_href": "https://github.com/JamesTheButler/TimePilot"
+                }
+            ]
+        },
+		{
+            "project_id": "PhysicsBasedSim",
+            "project_name": "Physics Based Simulation Game",
+            "project_description": "A proof of concept for a game that relies entirely on its physics simulation.",
+            "image_uri": "media/TimePilot.gif",
+            "tags": [
+                {
+                    "tag_name": "Physics Based Simuilation"
+                },
+                {
+                    "tag_name": "C++"
+                }
+            ],
+            "links": [
+                {
+                    "link_name": "Project",
+                    "link_href": "Physics-Based-Simulation-Game"
+                }
+            ]
+        }
+    ]
+}
