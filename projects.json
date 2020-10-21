@@ -4,7 +4,7 @@
             "project_id": "CubeFusion",
             "project_name": "Cube Fusion",
             "project_description": "A two-player cooperative puzzle game that teaches children the basic approach to programming. Consists of one project for the server and one project for the client devices.",
-            "image_uri": "media/cubefusion.gif",
+            "image_uri": "media/projects/CubeFusionNarrow.gif",
             "tags": [
                 {
                     "tag_name": "Unity3D"
@@ -48,7 +48,7 @@
                     "tag_name": "Physics Based Simuilation"
                 }
             ],
-            "image_uri": "media/MasterThesis.png",
+            "image_uri": "media/projects/MasterThesis.gif",
             "links": [
                 {
                     "link_name": "Project",
@@ -64,7 +64,7 @@
             "project_id": "TimePilot",
             "project_name": "Time Pilot",
             "project_description": "A modern implementation of the 80s classic.",
-            "image_uri": "media/TimePilot.gif",
+            "image_uri": "media/projects/TimePilotWide.gif",
             "tags": [
                 {
                     "tag_name": "Game Engine Architecture"
@@ -84,7 +84,7 @@
             "project_id": "PhysicsBasedSim",
             "project_name": "Physics Based Simulation Game",
             "project_description": "A proof of concept for a game that relies entirely on its physics simulation.",
-            "image_uri": "media/TimePilot.gif",
+            "image_uri": "media/projects/PhysicsBasedSimCloseUp.gif",
             "tags": [
                 {
                     "tag_name": "Physics Based Simuilation"
