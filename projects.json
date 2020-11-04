@@ -3,7 +3,7 @@
         {
             "project_id": "MasterThesis",
             "project_name": "Master Thesis: Real-time Plastic Deformation",
-            "project_description": "My master thesis revolved around creating a real-time deformation system for cars in video games. The biggest concern was creating visually plausible defromations within the time budget of a video game. The deformation process is started by first generating a volumetric, tetrahedral mesh based on the surface model of a car. This mesh is then prepared for a position-based dynamics algorithm, which simulates the individual tetrahedra of the volumetric mesh. This deformation can now be mapped to the original surface mesh of the car, which is rendered onto the screen. A Unity3D project handles the run-time and uses a library to compute the deformations.",
+            "project_description": "My master thesis revolved around creating a real-time deformation system for cars in video games. The biggest concern was creating visually plausible defromations within the time budget of a video game. <br> The deformation process is started by first generating a volumetric, tetrahedral mesh based on the surface model of a car. This mesh is then prepared for a position-based dynamics algorithm, which simulates the individual tetrahedra of the volumetric mesh. This deformation can now be mapped to the original surface mesh of the car, which is rendered onto the screen. A Unity3D project handles the run-time and uses a library to compute the deformations.",
             "tags": [
                 {
                     "tag_name": "Unity3D"
