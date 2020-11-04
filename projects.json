@@ -1,10 +1,10 @@
 {
     "projects": [
-        {
-            "project_id": "CubeFusion",
-            "project_name": "Cube Fusion",
-            "project_description": "A two-player cooperative puzzle game that teaches children the basic approach to programming. Consists of one project for the server and one project for the client devices.",
-            "image_uri": "media/projects/CubeFusionNarrow.gif",
+	{
+            "project_id": "MasterThesis",
+            "project_name": "Master Thesis: Real-time Plastic Deformation",
+            "project_description": "My master thesis revolved around creating a real-time deformation system for cars in video games. The biggest concern was creating visually plausible defromations within the time budget of a video game.
+			The deformation process is started by first generating a volumetric, tetrahedral mesh based on the surface model of a car. This mesh is then prepared for a position-based dynamics algorithm, which simulates the individual tetrahedra of the volumetric mesh. This deformation can now be mapped to the original surface mesh of the car, which is rendered onto the screen. A Unity3D project handles the run-time and uses a library to compute the deformations.",
             "tags": [
                 {
                     "tag_name": "Unity3D"
@@ -13,7 +13,36 @@
                     "tag_name": "C#"
                 },
                 {
-                    "tag_name": "Networking"
+                    "tag_name": "C++"
+                }
+                {
+                    "tag_name": "Physics Based Simuilation"
+                }
+            ],
+            "image_uri": "media/projects/MasterThesis.gif",
+            "links": [
+                {
+                    "link_name": "Unity3D Project",
+                    "link_href": "https://github.com/JamesTheButler/MasterThesisPrototype"
+                },
+                {
+                    "link_name": "Deformation Library",
+                    "link_href": "https://github.com/JamesTheButler/PlasticDeformationDLL"
+                }
+            ]
+        },
+        {
+            "project_id": "CubeFusion",
+            "project_name": "Cube Fusion",
+            "project_description": "Cube Fusion is a cooperative puzzle game for two players. It was part of the 2018 student exposition at the Universeum, Göteborg. 
+			The main focus of this project was on the game and level design, which was motivated by the objective to teach teenagers the basic approach to progamming. The players have to discuss the solution to the level before programming their character's actions. The simulation can then be started and the players will see, whether their characters can solve the level together. The project consists of a server and a client, which communicate via a TCP/IP protocol.",
+            "image_uri": "media/projects/CubeFusionNarrow.gif",
+            "tags": [
+                {
+                    "tag_name": "Unity3D"
+                },
+                {
+                    "tag_name": "C#"
                 }
             ],
             "links": [
@@ -27,48 +56,12 @@
                 }
             ]
         },
-        {
-            "project_id": "MasterThesis",
-            "project_name": "Master Thesis: Real-time Plastic Deformation",
-            "project_description": "The prototype that was developed as part of my master thesis in Game Design and Technology. Consists of a Unity project and a deformation library.",
-            "tags": [
-                {
-                    "tag_name": "Unity3D"
-                },
-                {
-                    "tag_name": "C#"
-                },
-                {
-                    "tag_name": "C++"
-                },
-                {
-                    "tag_name": "Multithreading"
-                },
-                {
-                    "tag_name": "Physics Based Simuilation"
-                }
-            ],
-            "image_uri": "media/projects/MasterThesis.gif",
-            "links": [
-                {
-                    "link_name": "Project",
-                    "link_href": "https://github.com/JamesTheButler/MasterThesisPrototype"
-                },
-                {
-                    "link_name": "Deformation Library",
-                    "link_href": "https://github.com/JamesTheButler/PlasticDeformationDLL"
-                }
-            ]
-        },
 		{
             "project_id": "TimePilot",
             "project_name": "Time Pilot",
-            "project_description": "A modern implementation of the 80s classic.",
+            "project_description": "This is a modern implementation of Konami's 80s classic <it>TimePilot</it>, which was developed as a final project for the course Game Engine Architecture. The implementation uses design patterns such as the observer pattern, the component pattern or the object pool pattern, to decouple and optimize the code.",
             "image_uri": "media/projects/TimePilotWide.gif",
             "tags": [
-                {
-                    "tag_name": "Game Engine Architecture"
-                },
                 {
                     "tag_name": "C++"
                 }
@@ -83,7 +76,7 @@
 		{
             "project_id": "PhysicsBasedSim",
             "project_name": "Physics Based Simulation Game",
-            "project_description": "A proof of concept for a game that relies entirely on its physics simulation.",
+            "project_description": "This is a proof of concept for a game that relies entirely on its physics simulation. Objects in the game are represented by spring-particle systems. These systems are physically evaluated in the game loop to compute forces, accelerations and velocites each frame. ",
             "image_uri": "media/projects/PhysicsBasedSimCloseUp.gif",
             "tags": [
                 {
