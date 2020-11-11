@@ -1,90 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>Portfolio - Tom Ille</title>
+    <title>Portfolio - Tom Ille</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/heroic-features.css" rel="stylesheet">
-  <link href="css/custom.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="scripts/LoadRepositories.js"></script>
-	
-	<link rel="shortcut icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/CreateProjectElements.js"></script>
+
+    <!-- TODO: add my own favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="https://github.githubassets.com/favicons/favicon.svg">
 </head>
 
 <body>
-  <div class="container">
-	<!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
-      <div style="width: 100%; overflow: hidden;">
-        <div style="width: 130px; float: left;"> 
-			<img class="round" src="media/img_avatar.png" alt="Avatar" width="150px">
-		</div>
-        <div style="margin-left: 180px;"> 
-			<h1 class="display-3">Tom Ille</h1>
-			<h2 class="display-3">Game Programmer</h2>		
-		</div>
-      </div>
-	  <p class="lead desc-about">I am a newly graduated game design master student from Germany. I love programming, software engineering and game development and I am looking for a chance to get into the exciting game development industry.</p>
-	  <div id="media-links">
-		  <a class="media-link" target="_blank" href="https://www.linkedin.com/in/tom-ille-167753163/">
-			<img class="media-icon round" src="media/icon_linkedin.png">
-		  </a>
-		  <a class="media-link" target="_blank" href="https://github.com/JamesTheButler">
-			<img class="media-icon round" src="media/icon_github.svg">
-		  </a>
-		  <a class="media-link" href="media/CV_Game_Developer_Tom_Ille.pdf">
-			<img class="media-icon round" src="media/icon_pdf.svg">Resume
-		  </a>
-	  </div>
-    </header>
+    <div class="container" id="main-container">
+        <header>
+            <img class="round" id="avatar" src="media/img_avatar.png" alt="Avatar" width="150px" />
+            <h1 class="display-3">Tom Ille</h1>
+            <h2 class="display-3 job-title">Game Developer</h2>
+            <p class="desc-about">
+                I am a newly graduated game design master student from Germany. I love programming, software engineering and game development and I am looking for a chance to get into the exciting game development industry.
+            </p>
 
-    <!-- Page Features -->
-    <div class="row text-center" id="repo-content">    </div>
-</div>
-  
- <!-- templates --> 
-<template>
-<div class="col-lg-3 col-md-6 mb-4" >
-	<div class="card h-100">
-		<img class="card-img-top" id="repo-image" src="" alt="">
-		<div class="card-body">
-			<h4 class="card-title" id="project_name"></h4>
-			<p class="card-text tag-list small" id="project_tags"></p>
-			<p class="card-text" id="project_description"></p>
-		</div>
-		<div class="card-footer" id="link-buttons">
-		</div>
-	</div>
-</div>
-</template>
+            <div id="media-links">
+                <a class="button media-link" href="media/CV_Game_Developer_Tom_Ille.pdf">
+                    Resume
+                </a>
+                <a class="media-link" target="_blank" href="https://www.linkedin.com/in/tom-ille-167753163/">
+                    <img class="media-icon round" src="media/icon_linkedin.png">
+                </a>
+                <a class="media-link" target="_blank" href="https://github.com/JamesTheButler">
+                    <img class="media-icon round" src="media/icon_github.svg">
+                </a>
+            </div>
+        </header>
 
-<template>
-<a href="" class="btn btn-primary" id="link-button" style="margin: 5px"></a>
-</template>
-
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-<div class="container">
-  <p class="m-0 text-center text-white">Copyright &copy; Tom Ille 2020</p>
-</div>
-<!-- /.container -->
-</footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+        <div id="repo-content"> </div>
+    </div>
 </body>
+
+<template id="TemplateProjectEven">
+    <hr class="styled-hr">
+    <div class="card flex-md-row box-shadow h-md-250 project-element project-element-even">
+        <div class="card-body">
+            <h4 class="card-title" id="project_name"></h4>
+            <div class="card-text tag-list small" id="project_tags"></div>
+            <div class="card-text project-desc" id="project_description"></div>
+            <div class="link-buttons"></div>
+        </div>
+        <img class="flex-auto d-none d-md-block project-icon" id="repo-image">
+    </div>
+</template>
+
+<template id="TemplateProjectOdd">
+    <hr class="styled-hr">
+    <div class="card flex-md-row box-shadow h-md-250 project-element project-element-odd">
+        <img class="flex-auto d-none d-md-block project-icon" id="repo-image">
+        <div class="card-body">
+            <h4 class="card-title" id="project_name"></h4>
+            <div class="card-text tag-list small" id="project_tags"></div>
+            <div class="card-text project-desc" id="project_description"></div>
+            <div class="link-buttons"> </div>
+        </div>
+    </div>
+</template>
+
+<template id="TemplateTag">
+    <div class="tag" id="tag_name"></div>
+</template>
+
+<template id="TemplateRepoLink">
+    <a href="" class="button link-button repo-button"></a>
+</template>
 
 </html>
