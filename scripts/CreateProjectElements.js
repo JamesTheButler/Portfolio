@@ -1,7 +1,7 @@
 var reposPath = "https://api.github.com/repos/JamesTheButler"
-"contents/githubio.json"
+//"contents/githubio.json"
 
-var projectsPath = "/JamesTheButler.github.io/contents/projects.json"
+var projectsPath = "/JamesTheButler.github.io/contents/data/projects.json"
 
 var startWithEven = 0;
 
