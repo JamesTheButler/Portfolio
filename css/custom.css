@@ -81,18 +81,6 @@ hr.styled-hr {
 }
 
 
-/* About Me */
-
-div#about-me {
-    float: left;
-}
-
-img#avatar {
-    float: left;
-    margin-right: 1.5rem;
-}
-
-
 /* Link Buttons */
 
 .button {
@@ -128,13 +116,28 @@ a.button {
 
 /*   Header   */
 
+div#about-me {
+    float: left;
+}
+
+img#avatar {
+    margin-right: 1.5rem;
+}
+
+.resume-link {
+    float: right;
+    margin-right: 0;
+}
+
 a.media-link {
     text-decoration: none !important;
     margin-right: var(--default-distance-small);
+    float: left;
 }
 
 div#media-links {
     float: left;
+    width: 100%;
 }
 
 img.media-icon {
@@ -146,10 +149,6 @@ img.media-icon {
     padding-Top: 1rem;
     font-size: 1.25rem;
     font-weight: 300;
-}
-
-.repo-button {
-    margin-right: var(--default-distance-small);
 }
 
 
@@ -181,11 +180,16 @@ img.media-icon {
 }
 
 img.project-icon {
-    height: 300px;
+    max-width: 40%;
+    height: auto;
 }
 
 .project-desc {
     flex-grow: 9000;
+}
+
+.link-buttons {
+    margin-top: var(--default-distance-medium);
 }
 
 
@@ -197,14 +201,24 @@ img.project-icon {
 
 .project-element-odd .card-body {
     padding-right: 0;
+    order: 2;
+}
+
+.project-element-odd img.project-icon {
+    order: 1;
 }
 
 .project-element-odd .card-body .link-buttons {
-    text-align: right;
+    text-align: left;
 }
 
 .project-element-odd .card-body .tag-list {
     justify-content: flex-start;
+}
+
+.project-element-odd .card-body .link-buttons .repo-button {
+    margin-right: var(--default-distance-small);
+    margin-top: var(--default-distance-small);
 }
 
 
@@ -216,12 +230,66 @@ img.project-icon {
 
 .project-element-even .card-body {
     padding-left: 0;
+    order: 1;
+}
+
+.project-element-even img.project-icon {
+    order: 2;
 }
 
 .project-element-even .card-body .link-buttons {
-    text-align: left;
+    text-align: right;
 }
 
 .project-element-even .card-body .tag-list {
     justify-content: flex-end;
+}
+
+.project-element-even .card-body .link-buttons .repo-button {
+    margin-left: var(--default-distance-small);
+    margin-top: var(--default-distance-small);
+}
+
+
+/* project elements for mobile devices */
+
+@media all and (max-width: 1023px) {
+    .project-element {
+        text-align: center;
+    }
+    .project-element .card-body {
+        padding-right: 0;
+        padding-left: 0;
+        order: 2;
+    }
+    .project-element .card-body .link-buttons {
+        text-align: center;
+    }
+    .project-element .card-body .tag-list {
+        justify-content: center;
+    }
+    img.project-icon {
+        order: 1;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: var(--default-distance-small);
+    }
+}
+
+
+/* center about me section */
+
+@media all and (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+}
+
+
+/* avatar goes left */
+
+@media all and (min-width: 768px) {
+    img#avatar {
+        float: left;
+    }
 }
