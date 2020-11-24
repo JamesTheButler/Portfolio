@@ -268,7 +268,7 @@ img.project-icon {
     .project-element .card-body .tag-list {
         justify-content: center;
     }
-    img.project-icon {
+    .project-element img.project-icon {
         order: 1;
         max-width: 100%;
         height: auto;
