@@ -1,10 +1,11 @@
 var reposPath = "https://api.github.com/repos/JamesTheButler"
-//"contents/githubio.json"
+    //"contents/githubio.json"
 
 var projectsPath = "/JamesTheButler.github.io/contents/data/projects.json"
 
 var startWithEven = 0;
 
+// generate a project element
 function CreateProjectHtml(contentObject, IsEven) {
     if (IsEven)
         var projectElementTemplate = document.getElementById("TemplateProjectEven");
@@ -25,16 +26,7 @@ function CreateProjectHtml(contentObject, IsEven) {
     document.getElementById("repo-content").appendChild(projectElement);
 }
 
-// generate tag items
-function GenerateTagItems_String(contentObject, mainDivClone) {
-    var tagsString = contentObject.tags[0].tag_name;
-    for (var i = 1; i < contentObject.tags.length; i++) {
-        tagsString += ", " + contentObject.tags[i].tag_name;
-    }
-    //console.log(mainDivClone)
-    mainDivClone.querySelector("#project_tags").textContent = tagsString;
-}
-
+// generate tag items in the style of stack overflow
 function GenerateTagItems_SOF_Style(contentObject, mainDivClone) {
     var tagTemplate = document.getElementById("TemplateTag");
     for (var i = 0; i < contentObject.tags.length; i++) {

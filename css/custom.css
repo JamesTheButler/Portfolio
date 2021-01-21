@@ -143,6 +143,7 @@ div#media-links {
 img.media-icon {
     width: 32px;
     text-decoration: none !important;
+    padding-top: 1.5px;
 }
 
 .desc-about {
@@ -280,8 +281,14 @@ img.project-icon {
 /* center about me section */
 
 @media all and (max-width: 768px) {
+    img#avatar {
+        margin-right: 0;
+    }
     header {
         text-align: center;
+    }
+    a.media-link {
+        float: none;
     }
 }
 
