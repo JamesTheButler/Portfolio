@@ -1,3 +1,5 @@
 # JamesTheButler.github.io
 
-www.jamesthebutler.github.io
+jamesthebutler.github.io
+
+ 
