@@ -1,5 +1,2 @@
-# JamesTheButler.github.io
-
-jamesthebutler.github.io
-
+# [JamesTheButler.github.io](https://JamesTheButler.github.io)
  
