@@ -1,0 +1,119 @@
+.card-title {
+  margin-bottom: 0;
+}
+
+.tag-list {
+  font-style: italic;
+  color: var(--highlight-color);
+  margin-bottom: var(--default-distance-small);
+  margin-top: var(--default-distance-small);
+  display: flex;
+}
+
+.tag {
+  border-radius: 10px;
+  background-color: var(--highlight-color-light);
+  color: var(--main-color);
+  width: auto;
+  display: block;
+  padding: 0.1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+img.project-icon {
+  max-width: 40%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.project-desc {
+  flex-grow: 9000;
+}
+
+.link-buttons {
+  margin-top: var(--default-distance-medium);
+}
+
+/* ODD */
+
+.project-element-odd {
+  text-align: left;
+}
+
+.project-element-odd .card-body {
+  padding-right: 0;
+  order: 2;
+}
+
+.project-element-odd img.project-icon {
+  order: 1;
+}
+
+.project-element-odd .card-body .link-buttons {
+  text-align: left;
+}
+
+.project-element-odd .card-body .tag-list {
+  justify-content: flex-start;
+}
+
+.project-element-odd .card-body .link-buttons .repo-button {
+  margin-right: var(--default-distance-small);
+  margin-top: var(--default-distance-small);
+}
+
+/* EVEN */
+
+.project-element-even {
+  text-align: right;
+}
+
+.project-element-even .card-body {
+  padding-left: 0;
+  order: 1;
+}
+
+.project-element-even img.project-icon {
+  order: 2;
+}
+
+.project-element-even .card-body .link-buttons {
+  text-align: right;
+}
+
+.project-element-even .card-body .tag-list {
+  justify-content: flex-end;
+}
+
+.project-element-even .card-body .link-buttons .repo-button {
+  margin-left: var(--default-distance-small);
+  margin-top: var(--default-distance-small);
+}
+
+/* project elements for mobile devices */
+
+@media all and (max-width: 1023px) {
+  .project-element {
+    text-align: center;
+  }
+  .project-element .card-body {
+    padding-right: 0;
+    padding-left: 0;
+    order: 2;
+  }
+  .project-element .card-body .link-buttons {
+    text-align: center;
+  }
+  .project-element .card-body .tag-list {
+    justify-content: center;
+  }
+  .project-element img.project-icon {
+    order: 1;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: var(--default-distance-small);
+  }
+}
