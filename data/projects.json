@@ -6,13 +6,13 @@
             "project_description": "My master thesis revolved around creating a real-time deformation system for cars in video games. The biggest concern was creating visually plausible deformations within the time budget of a video game. A Unity3D project handles the run-time and uses a library to compute the deformations.",
             "tags": [
                 {
-                    "tag_name": "Unity3D"
-                },
-                {
                     "tag_name": "C#"
                 },
                 {
                     "tag_name": "C++"
+                },
+                {
+                    "tag_name": "Unity3D"
                 },
                 {
                     "tag_name": "Physics Based Simuilation"
@@ -37,10 +37,10 @@
             "image_uri": "media/projects/CubeFusionNarrow.gif",
             "tags": [
                 {
-                    "tag_name": "Unity3D"
+                    "tag_name": "C#"
                 },
                 {
-                    "tag_name": "C#"
+                    "tag_name": "Unity3D"
                 }
             ],
             "links": [
@@ -60,10 +60,10 @@
             "project_description": "An App I developed for TTE Europe GmbH that can scan barcodes of different types and sends them to their Rest API. Made use of modern design patterns such as MVVM, Dependency Injection and Loosely Coupled Components.",
             "tags": [
                 {
-                    "tag_name": "Xamarin for VS"
+                    "tag_name": "C#"
                 },
                 {
-                    "tag_name": "C#"
+                    "tag_name": "Xamarin for VS"
                 },
                 {
                     "tag_name": "Mobile Development"
