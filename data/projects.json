@@ -57,7 +57,7 @@
 		{
             "project_id": "ScanApp",
             "project_name": "Barcode Scanner App",
-            "project_description": "An App I developed for TTE Europe GmbH that can scan barcodes of different types and sends them to their Rest API. Made use of modern design patterns such as MVVM, Dependency Injection and Loosely Coupled Components.",
+            "project_description": "An App I developed for TTE Europe GmbH that can scan barcodes of different types and sends them to their Rest API. The app was developed using modern design patterns such as MVVM, Dependency Injection and Loosely Coupled Components.",
             "tags": [
                 {
                     "tag_name": "C#"
