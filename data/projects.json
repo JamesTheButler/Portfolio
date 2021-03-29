@@ -55,6 +55,30 @@
             ]
         },
 		{
+            "project_id": "ScanApp",
+            "project_name": "Barcode Scanner App",
+            "project_description": "An App I developed for TTE Europe GmbH that can scan barcodes of different types and sends them to their Rest API. Made use of modern design patterns such as MVVM, Dependency Injection and Loosely Coupled Components.",
+            "tags": [
+                {
+                    "tag_name": "Xamarin for VS"
+                },
+                {
+                    "tag_name": "C#"
+                },
+                {
+                    "tag_name": "Mobile Development"
+                }
+            ],
+            "image_uri": "media/projects/ScanApp.png",
+            "links": [
+                {
+                    "link_name": "Google Play Store",
+                    "link_href": "https://play.google.com/store/apps/details?id=com.tte.scanapp"
+                }
+            ]
+        },
+		
+		{
             "project_id": "TimePilot",
             "project_name": "Time Pilot",
             "project_description": "This is a modern implementation of Konami's 80s classic TimePilot, which was developed as a final project for the course Game Engine Architecture. The implementation uses design patterns such as the observer pattern, the component pattern or the object pool pattern, to decouple and optimize the code.",
