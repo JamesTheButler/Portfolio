@@ -1,24 +1,26 @@
 {
-    "project_id": "CubeFusion",
-    "project_name": "Cube Fusion",
-    "project_description": "Cube Fusion is a cooperative puzzle game for two players. The main focus of this project was on the game and level design, which was motivated by the objective to teach teenagers the basic approach to progamming. The players have to discuss the solution to the level before programming their character's actions. The simulation can then be started and the players will see, whether their characters can solve the level together. The project consists of a server and a client, which communicate via a TCP/IP protocol.",
-    "image_uri": "media/projects/CubeFusionNarrow.gif",
+    "project_id": "MasterThesis",
+    "project_name": "Master Thesis: Real-time Plastic Deformation",
+    "project_description": "My master thesis revolved around creating a real-time deformation system for cars in video games. The biggest concern was creating visually plausible deformations within the time budget of a video game. A Unity3D project handles the run-time and uses a library to compute the deformations.",
     "tags": [
         {
             "tag_name": "C#"
         },
         {
-            "tag_name": "Unity3D"
-        }
-    ],
-    "links": [
-        {
-            "link_name": "Server",
-            "link_href": "https://github.com/JamesTheButler/Cube-Fusion-Server"
+            "tag_name": "C++"
         },
         {
-            "link_name": "Client",
-            "link_href": "https://github.com/JamesTheButler/Cube-Fusion-Client"
+            "tag_name": "Unity3D"
+        },
+        {
+            "tag_name": "Physics Based Simuilation"
+        }
+    ],
+    "image_uri": "media/projects/MasterThesis.gif",
+    "links": [
+        {
+            "link_name": "Unity3D Project",
+            "link_href": "https://github.com/JamesTheButler/MasterThesisPrototype"
         }
     ]
 }
