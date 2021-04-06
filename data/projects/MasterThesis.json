@@ -21,6 +21,10 @@
         {
             "link_name": "Unity3D Project",
             "link_href": "https://github.com/JamesTheButler/MasterThesisPrototype"
+        },
+        {
+            "link_name": "Deformation Library",
+            "link_href": "https://github.com/JamesTheButler/PlasticDeformationDLL"
         }
     ]
 }

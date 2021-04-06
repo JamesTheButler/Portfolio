@@ -28,12 +28,10 @@ function CreateProjectHtml(projectName, IsEven) {
     projectJsonContent.project_name;
   //GenerateTagItems_String(contentObject, mainDivClone);
   GenerateTagItems_SOF_Style(projectJsonContent, projectElement);
-  //console.log("1" + projectElement)
   projectElement.querySelector("#project_description").textContent =
     projectJsonContent.project_description;
   projectElement.querySelector("#repo-image").src =
     projectJsonContent.image_uri;
-  //console.log("2" + projectElement)
 
   GenerateLinkButtons(projectJsonContent, projectElement);
   document.getElementById("repo-content").appendChild(projectElement);
