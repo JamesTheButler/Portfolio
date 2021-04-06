@@ -1,0 +1,20 @@
+{
+    "project_id": "PhysicsBasedSim",
+    "project_name": "Physics Based Simulation Game",
+    "project_description": "This is a proof of concept for a game that relies entirely on its physics simulation. Objects in the game are represented by spring-particle systems. These systems are physically evaluated in the game loop to compute forces, accelerations and velocites each frame.",
+    "image_uri": "media/projects/PhysicsBasedSimCloseUp.gif",
+    "tags": [
+        {
+            "tag_name": "C++"
+        },
+        {
+            "tag_name": "Physics Based Simuilation"
+        }
+    ],
+    "links": [
+        {
+            "link_name": "Project",
+            "link_href": "https://github.com/JamesTheButler/Physics-Based-Simulation-Game"
+        }
+    ]
+}

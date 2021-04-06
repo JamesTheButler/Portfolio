@@ -1,0 +1,17 @@
+{
+    "project_id": "TimePilot",
+    "project_name": "Time Pilot",
+    "project_description": "This is a modern implementation of Konami's 80s classic TimePilot, which was developed as a final project for the course Game Engine Architecture. The implementation uses design patterns such as the observer pattern, the component pattern or the object pool pattern, to decouple and optimize the code.",
+    "image_uri": "media/projects/TimePilotWide.gif",
+    "tags": [
+        {
+            "tag_name": "C++"
+        }
+    ],
+    "links": [
+        {
+            "link_name": "Project",
+            "link_href": "https://github.com/JamesTheButler/TimePilot"
+        }
+    ]
+}
