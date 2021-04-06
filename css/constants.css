@@ -1,0 +1,8 @@
+:root {
+  --background-color: white;
+  --main-color: #3b3838;
+  --highlight-color-light: #d5e4f3;
+  --highlight-color: #2f528f;
+  --default-distance-small: 0.5rem;
+  --default-distance-medium: 1.5rem;
+}
