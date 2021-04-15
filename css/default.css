@@ -1,4 +1,30 @@
 @import "./constants.css";
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+a {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 html {
   background-color: var(--background-color);
   color: var(--main-color);
@@ -44,8 +70,4 @@ h6 {
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.1;
-}
-
-a{
-	color:var(--highlight-color);
 }
