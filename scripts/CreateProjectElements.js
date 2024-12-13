@@ -1,35 +1,48 @@
-var reposPath = "https://api.github.com/repos/JamesTheButler";
-var projectsPath = "/PortfolioData/contents/";
+const reposPath = "https://api.github.com/repos/JamesTheButler";
+const projectsPath = "/PortfolioData/contents/";
 
 var startWithEven = 0;
 
-// generate a project element
-function CreateProjectHtml(projectName, IsEven) {
-  var projectPath =
-    reposPath + projectsPath + "projects/" + projectName + ".json";
-  console.log(projectPath);
 
-  // pull and base64 decode the content-tag in the projects.json file from github
-  var projectJsonContent = JSON.parse(
-    atob(JSON.parse(HttpGet(projectPath)).content)
+async function HttpGet(url) {
+  const timeoutMs = 2000;
+
+  const fetchPromise = fetch(url);
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error(`Request timed out after ${timeoutMs}ms`)), timeoutMs)
   );
-  console.log(projectJsonContent);
 
-  if (IsEven)
-    var projectElementTemplate = document.getElementById("TemplateProjectEven");
-  else
-    var projectElementTemplate = document.getElementById("TemplateProjectOdd");
+  const response = await Promise.race([fetchPromise, timeoutPromise]);
 
+  if (!response.ok){
+    var error = new Error(`Failed to fetch ${url}`);
+    error.status = response.status;
+    throw error;
+  }
+
+  return await response.json();
+}
+
+async function DownoadJson(url) {
+  var projectsJsonFile = await HttpGet(url);
+  return JSON.parse(atob(projectsJsonFile.content));
+}
+
+// generate a project element
+async function CreateProjectHtml(projectName, IsEven) {
+  const projectPath = reposPath + projectsPath + "projects/" + projectName + ".json";
+  console.log("project data path: " + projectPath);
+  var projectJsonContent = await DownoadJson(projectPath);
+  console.log("project data json: " + projectJsonContent);
+
+  var templateId = IsEven ? "TemplateProjectEven" : "TemplateProjectOdd";
+  var projectElementTemplate = document.getElementById(templateId);
   var projectElement = projectElementTemplate.content.cloneNode(true);
 
-  projectElement.querySelector("#project_name").textContent =
-    projectJsonContent.project_name;
-  //GenerateTagItems_String(contentObject, mainDivClone);
+  projectElement.querySelector("#project_name").textContent = projectJsonContent.project_name;
   GenerateTagItems_SOF_Style(projectJsonContent, projectElement);
-  projectElement.querySelector("#project_description").textContent =
-    projectJsonContent.project_description;
-  projectElement.querySelector("#repo-image").src =
-    projectJsonContent.image_uri;
+  projectElement.querySelector("#project_description").textContent = projectJsonContent.project_description;
+  projectElement.querySelector("#repo-image").src = projectJsonContent.image_uri;
 
   GenerateLinkButtons(projectJsonContent, projectElement);
   document.getElementById("repo-content").appendChild(projectElement);
@@ -60,46 +73,47 @@ function GenerateLinkButtons(contentObject, mainDivClone) {
   }
 }
 
-// generate html from the projects.json file
-function GenerateProjectsHtml(projectJson) {
+
+async function LoadProjects() {
+  var projectMetaPath = reposPath + projectsPath + "projectsGP.json";
+  var projectMetaJso = await DownoadJson(projectMetaPath);
+  await GenerateProjectsHtml(projectMetaJso);
+}
+
+async function GenerateProjectsHtml(projectJson) {
   var projectNames = projectJson.projects;
   for (var i = 0; i < projectNames.length; i++) {
     console.log("loading " + projectNames[i] + "...");
-    CreateProjectHtml(projectNames[i], (i + startWithEven) % 2 == 0);
+    await CreateProjectHtml(projectNames[i], (i + startWithEven) % 2 == 0);
   }
 }
 
-function HttpGet(theUrl) {
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", theUrl, false); // false for synchronous request
-  xmlHttp.send(null);
-  return xmlHttp.responseText;
+async function LoadDescription() {
+  const descriptionDataPath = reposPath + projectsPath + "description.json";
+  var descriptionDataJson = await DownoadJson(descriptionDataPath);
+  UpdateDescription(descriptionDataJson);
 }
 
 function UpdateDescription(descriptionJson) {
-  
   var descriptionParagraph = document.querySelector('.desc-about');
-  descriptionParagraph.textContent = descriptionJson.content;
+  descriptionParagraph = descriptionJson.content;
 }
 
-function LoadDescription() {
-  var descriptionJsonFile = HttpGet(reposPath + projectsPath + "description.json");
-  // base64 decode the content-tag in the description.json file from github
-  var decodedDescriptionJsonContent = atob(JSON.parse(descriptionJsonFile).content);
-  var descriptionJsonContent = JSON.parse(decodedDescriptionJsonContent);
-  UpdateDescription(descriptionJsonContent);
+function ShowGitHubLimitApology() {
+  const apology = "I'm sorry. The project data is hosted on GitHub and they only allow 60 requests per hour. Come back in an hour please.\nI need to fix this somehow. :3";
+  document
+    .querySelector('.desc-about')
+    .textContent = apology;
 }
 
-function LoadProjects() {
-  var projectsJsonFile = HttpGet(reposPath + projectsPath + "projectsGP.json");
-  // base64 decode the content-tag in the projects.json file from github
-  var decodedJsonContent = atob(JSON.parse(projectsJsonFile).content);
-  var projectJsonContent = JSON.parse(decodedJsonContent);
-  // generate project elements with the parsed content-string
-  GenerateProjectsHtml(projectJsonContent);
-}
-
-$(document).ready(function () {
-  LoadDescription();
-  LoadProjects();
+$(document).ready(async function () {
+  try {
+    await LoadDescription();
+    await LoadProjects();
+  } catch(error) {
+    console.error("Error loading content:", error);
+    if(error.status == "403"){
+      ShowGitHubLimitApology();
+    }
+  }
 });
