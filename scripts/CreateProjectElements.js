@@ -64,7 +64,7 @@ function GenerateLinkButtons(contentObject, mainDivClone) {
 function GenerateProjectsHtml(projectJson) {
   var projectNames = projectJson.projects;
   for (var i = 0; i < projectNames.length; i++) {
-    console.log(projectNames[i]);
+    console.log("loading " + projectNames[i] + "...");
     CreateProjectHtml(projectNames[i], (i + startWithEven) % 2 == 0);
   }
 }
@@ -76,12 +76,30 @@ function HttpGet(theUrl) {
   return xmlHttp.responseText;
 }
 
-$(document).ready(function () {
+function UpdateDescription(descriptionJson) {
+  
+  var descriptionParagraph = document.querySelector('.desc-about');
+  descriptionParagraph.textContent = descriptionJson.content;
+}
+
+function LoadDescription() {
+  var descriptionJsonFile = HttpGet(reposPath + projectsPath + "description.json");
+  // base64 decode the content-tag in the description.json file from github
+  var decodedDescriptionJsonContent = atob(JSON.parse(descriptionJsonFile).content);
+  var descriptionJsonContent = JSON.parse(decodedDescriptionJsonContent);
+  UpdateDescription(descriptionJsonContent);
+}
+
+function LoadProjects() {
   var projectsJsonFile = HttpGet(reposPath + projectsPath + "projectsGP.json");
   // base64 decode the content-tag in the projects.json file from github
-  var projectJsonContent = JSON.parse(
-    atob(JSON.parse(projectsJsonFile).content)
-  );
+  var decodedJsonContent = atob(JSON.parse(projectsJsonFile).content);
+  var projectJsonContent = JSON.parse(decodedJsonContent);
   // generate project elements with the parsed content-string
   GenerateProjectsHtml(projectJsonContent);
+}
+
+$(document).ready(function () {
+  LoadDescription();
+  LoadProjects();
 });
