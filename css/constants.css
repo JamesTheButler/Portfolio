@@ -3,6 +3,7 @@
   --main-color: #3b3838;
   --highlight-color-light: #d5e4f3;
   --highlight-color: #2f528f;
+  --error-color:rgb(143, 47, 47);
   --default-distance-small: 0.5rem;
   --default-distance-medium: 1.5rem;
 }

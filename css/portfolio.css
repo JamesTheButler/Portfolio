@@ -120,6 +120,13 @@ img.media-icon {
   font-weight: 300;
 }
 
+.data-limit-error {
+  padding-top: 1rem;
+  font-weight: 600;
+  font-size: medium;
+  color: var(--error-color)
+}
+
 /* center about me section */
 
 @media all and (max-width: 768px) {

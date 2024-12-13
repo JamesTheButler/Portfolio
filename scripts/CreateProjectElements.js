@@ -95,15 +95,18 @@ async function LoadDescription() {
 }
 
 function UpdateDescription(descriptionJson) {
+  document.querySelector('.data-limit-error').style.display = "none";
+
   var descriptionParagraph = document.querySelector('.desc-about');
-  descriptionParagraph = descriptionJson.content;
+  descriptionParagraph.textContent = descriptionJson.content;
 }
 
 function ShowGitHubLimitApology() {
-  const apology = "I'm sorry. The project data is hosted on GitHub and they only allow 60 requests per hour. Come back in an hour please.\nI need to fix this somehow. :3";
+  document.querySelector('.desc-about').style.display = "none";
+  const apology = "I'm sorry. The portfolio data is hosted on GitHub and they only allow 60 requests per hour. Come back in an hour please.<br>I need to fix this somehow. :3";
   document
-    .querySelector('.desc-about')
-    .textContent = apology;
+    .querySelector('.data-limit-error')
+    .innerHTML = apology;
 }
 
 $(document).ready(async function () {
