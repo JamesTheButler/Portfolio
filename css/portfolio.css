@@ -1,4 +1,5 @@
 @import "./constants.css";
+
 header {
   background-color: var(--background-color);
   color: var(--main-color);
@@ -49,7 +50,6 @@ hr.styled-hr {
 }
 
 /* Link Buttons */
-
 .button {
   text-decoration: none;
   color: var(--main-color);
@@ -81,7 +81,6 @@ a.button {
 }
 
 /*   Header   */
-
 div#about-me {
   float: left;
 }
@@ -128,7 +127,6 @@ img.media-icon {
 }
 
 /* center about me section */
-
 @media all and (max-width: 768px) {
   img#avatar {
     margin-right: 0;
@@ -142,7 +140,6 @@ img.media-icon {
 }
 
 /* avatar goes left */
-
 @media all and (min-width: 768px) {
   img#avatar {
     float: left;
