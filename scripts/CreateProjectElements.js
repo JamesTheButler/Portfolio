@@ -28,7 +28,6 @@ async function DownoadJson(url) {
   return JSON.parse(atob(projectsJsonFile.content));
 }
 
-// generate a project element
 async function CreateProjectHtml(projectName, IsEven) {
   const projectPath = reposPath + projectsPath + "projects/" + projectName + ".json";
   console.log("project data path: " + projectPath);
@@ -40,7 +39,7 @@ async function CreateProjectHtml(projectName, IsEven) {
   var projectElement = projectElementTemplate.content.cloneNode(true);
 
   projectElement.querySelector("#project_name").textContent = projectJsonContent.project_name;
-  GenerateTagItems_SOF_Style(projectJsonContent, projectElement);
+  GenerateTagItems(projectJsonContent, projectElement);
   projectElement.querySelector("#project_description").textContent = projectJsonContent.project_description;
   projectElement.querySelector("#repo-image").src = projectJsonContent.image_uri;
 
@@ -48,8 +47,8 @@ async function CreateProjectHtml(projectName, IsEven) {
   document.getElementById("repo-content").appendChild(projectElement);
 }
 
-// generate tag items in the style of stack overflow
-function GenerateTagItems_SOF_Style(contentObject, mainDivClone) {
+// tag items in style of stack overflow
+function GenerateTagItems(contentObject, mainDivClone) {
   var tagTemplate = document.getElementById("TemplateTag");
   for (var i = 0; i < contentObject.tags.length; i++) {
     var tagClone = tagTemplate.content.cloneNode(true);
@@ -59,7 +58,6 @@ function GenerateTagItems_SOF_Style(contentObject, mainDivClone) {
   }
 }
 
-// generate html code for link buttons
 function GenerateLinkButtons(contentObject, mainDivClone) {
   var linkButtonTemplate = document.getElementById("TemplateRepoLink");
   for (var key in contentObject.links) {
@@ -72,7 +70,6 @@ function GenerateLinkButtons(contentObject, mainDivClone) {
     mainDivClone.querySelector(".link-buttons").appendChild(linkButtonClone);
   }
 }
-
 
 async function LoadProjects() {
   var projectMetaPath = reposPath + projectsPath + "projectsGP.json";
@@ -103,13 +100,13 @@ function UpdateDescription(descriptionJson) {
 
 function ShowGitHubLimitApology() {
   document.querySelector('.desc-about').style.display = "none";
-  const apology = "I'm sorry. The portfolio data is hosted on GitHub and they only allow 60 requests per hour. Come back in an hour please.<br>I need to fix this somehow. :3";
+  const apology = "I'm sorry, the portfolio data is hosted on GitHub and they only allow 60 requests per hour. Come back in an hour please.<br>I need to fix this somehow. :3";
   document
     .querySelector('.data-limit-error')
     .innerHTML = apology;
 }
 
-$(document).ready(async function () {
+async function OnPageLoad() {
   try {
     await LoadDescription();
     await LoadProjects();
@@ -119,4 +116,6 @@ $(document).ready(async function () {
       ShowGitHubLimitApology();
     }
   }
-});
+}
+
+$(document).ready(OnPageLoad);
