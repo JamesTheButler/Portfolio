@@ -98,7 +98,7 @@ function UpdateDescription(descriptionJson) {
   document.querySelector('.data-limit-error').style.display = "none";
 
   var descriptionParagraph = document.querySelector('.desc-about');
-  descriptionParagraph.textContent = descriptionJson.content;
+  descriptionParagraph.innerHTML = descriptionJson.content;
 }
 
 function ShowGitHubLimitApology() {
