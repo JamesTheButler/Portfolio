@@ -1,8 +1,6 @@
 const reposPath = "https://api.github.com/repos/JamesTheButler";
 const projectsPath = "/PortfolioData/contents/";
-
-var startWithEven = 0;
-
+const startWithEven = 0;
 
 async function HttpGet(url) {
   const timeoutMs = 2000;
@@ -40,14 +38,13 @@ async function CreateProjectHtml(projectName, IsEven) {
 
   projectElement.querySelector("#project_name").textContent = projectJsonContent.project_name;
   GenerateTagItems(projectJsonContent, projectElement);
-  projectElement.querySelector("#project_description").textContent = projectJsonContent.project_description;
+  projectElement.querySelector("#project_description").innerHTML = projectJsonContent.project_description;
   projectElement.querySelector("#repo-image").src = projectJsonContent.image_uri;
 
   GenerateLinkButtons(projectJsonContent, projectElement);
   document.getElementById("repo-content").appendChild(projectElement);
 }
 
-// tag items in style of stack overflow
 function GenerateTagItems(contentObject, mainDivClone) {
   var tagTemplate = document.getElementById("TemplateTag");
   for (var i = 0; i < contentObject.tags.length; i++) {
