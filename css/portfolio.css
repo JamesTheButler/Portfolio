@@ -33,9 +33,12 @@ h2.job-title {
   color: var(--highlight-color);
 }
 
-footer.py-5 {
+footer {
   padding-bottom: 1rem !important;
   padding-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  margin-top: 1rem !important;
+  text-align: center;
 }
 
 .row {
@@ -50,7 +53,7 @@ hr.styled-hr {
 }
 
 /* Link Buttons */
-.button {
+.button, button {
   text-decoration: none;
   color: var(--main-color);
   display: inline-block;
@@ -65,7 +68,7 @@ hr.styled-hr {
   transition: 0.3s;
 }
 
-a.button:hover {
+.button:hover, button:hover {
   text-decoration: none;
   background-color: var(--highlight-color);
   color: var(--background-color);
@@ -124,6 +127,11 @@ img.media-icon {
   font-weight: 600;
   font-size: medium;
   color: var(--error-color)
+}
+
+.scrollToTopButton {
+  width: 48px;
+  height: 48px;
 }
 
 /* center about me section */

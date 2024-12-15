@@ -103,7 +103,16 @@ function ShowGitHubLimitApology() {
     .innerHTML = apology;
 }
 
+function SetUpScrollToTop() {
+  var button = document.getElementById('scrollToTopButton');
+  button.onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+}
+
 async function OnPageLoad() {
+  SetUpScrollToTop();
+
   try {
     await LoadDescription();
     await LoadProjects();
