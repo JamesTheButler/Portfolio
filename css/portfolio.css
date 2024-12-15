@@ -130,9 +130,21 @@ img.media-icon {
 }
 
 .scrollToTopButton {
+  padding-bottom: 4px; /* to center the chevron better */
   width: 48px;
   height: 48px;
+  padding: 0%;
+  background-color: var(--background-color);
 }
+
+svg.icon {
+  fill: var(--main-color);
+}
+
+.scrollToTopButton:hover svg.icon{
+  fill: var(--background-color);
+}
+
 
 /* center about me section */
 @media all and (max-width: 768px) {
