@@ -69,9 +69,20 @@ function GenerateLinkButtons(contentObject, mainDivClone) {
 }
 
 async function LoadProjects() {
-  var projectMetaPath = reposPath + projectsPath + "projectsGP.json";
-  var projectMetaJso = await DownoadJson(projectMetaPath);
-  await GenerateProjectsHtml(projectMetaJso);
+  const projectsFile = 'data/projectsGP.json';
+
+  try {
+    const response = await fetch(projectsFile);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log('Projects loaded:', data);
+    await GenerateProjectsHtml(data);
+  } catch (error) {
+    console.error('Failed to fetch projects:', error);
+  }
 }
 
 async function GenerateProjectsHtml(projectJson) {
