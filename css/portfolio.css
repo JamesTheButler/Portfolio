@@ -141,8 +141,33 @@ svg.icon {
   fill: var(--main-color);
 }
 
-.scrollToTopButton:hover svg.icon{
+.scrollToTopButton:hover svg.icon {
   fill: var(--background-color);
+}
+
+#skills{
+}
+
+#skill-list {
+  height: 32px;
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  padding: 0;
+}
+
+il.skill-item {
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border-color: var(--highlight-color);
+  border-style: solid;
+  border-width: 2px;
+  padding-left: 18px;
+  padding-right: 18px;
+  font-weight: bold;
+  color: var(--highlight-color);
+  background-color: var(--highlight-color-light);
 }
 
 
