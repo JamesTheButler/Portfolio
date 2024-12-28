@@ -68,7 +68,7 @@ function GenerateLinkButtons(contentObject, mainDivClone) {
   }
 }
 
-async function LoadProjects() {
+async function LoadProjectsLocal(){
   const projectsFile = 'data/projectsGP.json';
 
   try {
@@ -83,6 +83,12 @@ async function LoadProjects() {
   } catch (error) {
     console.error('Failed to fetch projects:', error);
   }
+}
+
+async function LoadProjects() {
+  var projectMetaPath = reposPath + projectsPath + "projectsGP.json";
+  var projectMetaJso = await DownoadJson(projectMetaPath);
+  await GenerateProjectsHtml(projectMetaJso);
 }
 
 async function GenerateProjectsHtml(projectJson) {
