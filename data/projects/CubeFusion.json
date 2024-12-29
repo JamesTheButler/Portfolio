@@ -1,0 +1,24 @@
+{
+    "project_id": "CubeFusion",
+    "project_name": "Cube Fusion",
+    "project_description": " Cube Fusion is a cooperative puzzle game designed to teach teenagers basic programming concepts. Players discuss and program character actions to solve levels. The project includes a server and two client mobile apps communicating via TCP/IP. My focus was on level design and gameplay code.",
+    "image_uri": "media/projects/CubeFusionNarrow.gif",
+    "tags": [
+        {
+            "tag_name": "C#"
+        },
+        {
+            "tag_name": "Unity"
+        }
+    ],
+    "links": [
+        {
+            "link_name": "Demo Page",
+            "link_href": "http://idxpo.se/2018/group12/cubefusion/"
+        },
+        {
+            "link_name": "Source Code",
+            "link_href": "https://github.com/JamesTheButler/Cube-Fusion-Server"
+        }
+    ]
+}

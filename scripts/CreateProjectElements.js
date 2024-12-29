@@ -27,9 +27,9 @@ async function DownoadJson(url) {
 }
 
 async function CreateProjectHtml(projectName, IsEven) {
-  const projectPath = reposPath + projectsPath + "projects/" + projectName + ".json";
+  const projectPath = "projects/" + projectName + ".json";
   console.log("project data path: " + projectPath);
-  var projectJsonContent = await DownoadJson(projectPath);
+  var projectJsonContent = await LoadLocalJson(projectPath);
   console.log("project data json: " + projectJsonContent);
 
   var templateId = IsEven ? "TemplateProjectEven" : "TemplateProjectOdd";
@@ -42,7 +42,7 @@ async function CreateProjectHtml(projectName, IsEven) {
   projectElement.querySelector("#repo-image").src = projectJsonContent.image_uri;
 
   GenerateLinkButtons(projectJsonContent, projectElement);
-  document.getElementById("repo-content").appendChild(projectElement);
+  document.getElementById("projects").appendChild(projectElement);
 }
 
 function GenerateTagItems(contentObject, mainDivClone) {
@@ -68,27 +68,32 @@ function GenerateLinkButtons(contentObject, mainDivClone) {
   }
 }
 
-async function LoadProjectsLocal(){
-  const projectsFile = 'data/projectsGP.json';
+async function LoadLocalJson(fileName){
+  fileName = 'data/' + fileName;
+  let data;
 
   try {
-    const response = await fetch(projectsFile);
+    const response = await fetch(fileName);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const data = await response.json();
-    console.log('Projects loaded:', data);
-    await GenerateProjectsHtml(data);
+    data = await response.json();
+    console.log('Json loaded:', data);
   } catch (error) {
-    console.error('Failed to fetch projects:', error);
+    console.error('Failed to fetch json:', error);
   }
+  return data;
+}
+
+async function LoadDescription() {
+  let descriptionDataJson = await LoadLocalJson("description.json");
+  UpdateDescription(descriptionDataJson);
 }
 
 async function LoadProjects() {
-  var projectMetaPath = reposPath + projectsPath + "projectsGP.json";
-  var projectMetaJso = await DownoadJson(projectMetaPath);
-  await GenerateProjectsHtml(projectMetaJso);
+  let projectsJson = await LoadLocalJson("projects.json");
+  await GenerateProjectsHtml(projectsJson);
 }
 
 async function GenerateProjectsHtml(projectJson) {
@@ -99,17 +104,11 @@ async function GenerateProjectsHtml(projectJson) {
   }
 }
 
-async function LoadDescription() {
-  const descriptionDataPath = reposPath + projectsPath + "description.json";
-  var descriptionDataJson = await DownoadJson(descriptionDataPath);
-  UpdateDescription(descriptionDataJson);
-}
-
 function UpdateDescription(descriptionJson) {
   document.querySelector('.data-limit-error').style.display = "none";
 
   var descriptionParagraph = document.querySelector('.desc-about');
-  descriptionParagraph.innerHTML = descriptionJson.content;
+  descriptionParagraph.innerHTML = descriptionJson.description;
 }
 
 function ShowGitHubLimitApology() {

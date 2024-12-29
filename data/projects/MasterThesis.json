@@ -1,0 +1,30 @@
+{
+    "project_id": "MasterThesis",
+    "project_name": "Master Thesis: Real-time Plastic Deformation",
+    "project_description": "My master's thesis focused on creating a real-time deformation system for cars in video games. The biggest concern was creating visually plausible deformations within the time budget of a video game. A Unity project handled the run-time, leveraging a C++ library for deformation computations.",
+    "tags": [
+        {
+            "tag_name": "C#"
+        },
+        {
+            "tag_name": "C++"
+        },
+        {
+            "tag_name": "Unity"
+        },
+        {
+            "tag_name": "Physics Based Simulation"
+        }
+    ],
+    "image_uri": "media/projects/MasterThesis.gif",
+    "links": [
+        {
+            "link_name": "Source Code (Unity Project)",
+            "link_href": "https://github.com/JamesTheButler/MasterThesisPrototype"
+        },
+        {
+            "link_name": "Source Code (C++ Library)",
+            "link_href": "https://github.com/JamesTheButler/PlasticDeformationDLL"
+        }
+    ]
+}

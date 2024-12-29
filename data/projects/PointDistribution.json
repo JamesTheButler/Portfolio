@@ -1,0 +1,24 @@
+{
+    "project_id": "PointDistribution",
+    "project_name": "Algorithms for scattering 2D Points",
+    "project_description": "This project explores three 2D point-scattering algorithms: a fully random approach (uneven distribution), my custom algorithm (even distribution with minor clumps), and Poisson-Disc sampling (completely even distribution)",
+    "image_uri": "media/projects/PointDistribution.gif",
+    "tags": [
+        {
+            "tag_name": "React"
+        },
+        {
+            "tag_name": "Java Script"
+        }
+    ],
+    "links": [
+        {
+            "link_name": "Live-Project",
+            "link_href": "http://www.tom.ille-web.de/PointDistribution/index.html"
+        },
+        {
+            "link_name": "Source Code",
+            "link_href": "https://github.com/JamesTheButler/PointDistribution"
+        }
+    ]
+}

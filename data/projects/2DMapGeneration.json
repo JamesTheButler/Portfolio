@@ -1,0 +1,23 @@
+{
+    "project_id": "2DMapGeneration",
+    "project_name": "2D, Tile-Based Map Generation",
+    "project_description": "A 2D tile-based map generator that places tiles based on defined rules. The system selects the appropriate sprites from sprite sheets to match the generated tile map.",
+    "image_uri": "media/projects/2DMapGeneration.gif",
+    "tags": [
+        {
+            "tag_name": "C#"
+        },
+        {
+            "tag_name": "Unity"
+        },
+        {
+            "tag_name": "2D Art"
+        }
+    ],
+    "links": [
+        {
+            "link_name": "Source Code",
+            "link_href": "https://github.com/JamesTheButler/TileBased-MapGenerator"
+        }
+    ]
+}
