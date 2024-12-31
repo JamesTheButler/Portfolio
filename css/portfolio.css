@@ -40,7 +40,7 @@ div.main-container {
   width: 1200;
 }
 
-h2.job-title {
+h2#profile-title {
   color: var(--highlight-color);
 }
 
@@ -99,7 +99,7 @@ div#about-me {
   float: left;
 }
 
-img#avatar {
+img#profile-image {
   margin-right: 1.5rem;
   border: var(--highlight-color) solid 2px;
   background-color: var(--highlight-color);
@@ -156,9 +156,6 @@ svg.icon {
   fill: var(--background-color);
 }
 
-#skills{
-}
-
 #skill-list {
   height: 32px;
   list-style: none;
@@ -184,7 +181,7 @@ il.skill-item {
 
 /* center about me section */
 @media all and (max-width: 768px) {
-  img#avatar {
+  img#profile-image {
     margin-right: 0;
   }
   header {
@@ -197,7 +194,7 @@ il.skill-item {
 
 /* avatar goes left */
 @media all and (min-width: 768px) {
-  img#avatar {
+  img#profile-image {
     float: left;
   }
 }

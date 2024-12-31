@@ -1,17 +1,27 @@
 async function SetUpHome()
 {
-  await SetUpProfilePic();
-  await SetUpDescription();
+  await SetUpProfile();
   await SetUpSocials();
 }
 
-async function SetUpProfilePic() 
+async function SetUpProfile() 
 {
+  let profileData;
 
-}
+  try
+  {
+    profileData = await LoadData("profile.json");
+  }
+  catch(error)
+  {
+    console.error("Error while setting up profile.", error);
+    return;
+  }
 
-async function SetUpDescription() 
-{
+  document.getElementById("profile-image").src = "media/" + profileData.image;
+  document.getElementById("profile-description").innerHTML = profileData.description;
+  document.getElementById("profile-name").innerHTML = profileData.name;
+  document.getElementById("profile-title").innerHTML = profileData.title;
 
 }
 

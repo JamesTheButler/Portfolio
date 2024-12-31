@@ -89,7 +89,7 @@ async function GenerateProjectsHtml(projectJson) {
 }
 
 function UpdateDescription(descriptionJson) {
-  document.querySelector('.data-limit-error').style.display = "none";
+  document.querySelector('#data-limit-error').style.display = "none";
 
   var descriptionParagraph = document.querySelector('.desc-about');
   descriptionParagraph.innerHTML = descriptionJson.description;
