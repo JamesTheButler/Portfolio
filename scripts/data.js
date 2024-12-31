@@ -12,7 +12,6 @@ async function LoadData(fileName) {
     
     return data;
 }
-  
 
 async function GetConfig() {
     return await LoadData("config.json");

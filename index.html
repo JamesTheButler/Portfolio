@@ -18,9 +18,15 @@
     <link href="css/projects.css" rel="stylesheet">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- utils -->
     <script src="scripts/data.js"></script>
+
+    <!-- contents -->
     <script src="scripts/projects.js"></script>
+    <script src="scripts/home.js"></script>
     <script src="scripts/wip.js"></script>
+
+    <!-- main -->
     <script src="scripts/main.js"></script>
 
     <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
@@ -36,34 +42,10 @@
             <p class="data-limit-error" id="data-limit-error"></p>
             <p class="desc-about" id="desc-about"></p>
             <div id="media-links">
-                <a class="button media-link" target="_blank" rel="noopener noreferrer"
-                    href="media/CV_Game_Developer_Tom_Ille.pdf">
-                    Resume
-                </a>
-                <a class="media-link" target="_blank" rel="noopener noreferrer"
-                    href="https://www.linkedin.com/in/tom-ille-167753163/">
-                    <img class="media-icon round" src="media/icon_linkedin.png">
-                </a>
-                <a class="media-link" target="_blank" rel="noopener noreferrer"
-                    href="https://github.com/JamesTheButler">
-                    <img class="media-icon round" src="media/icon_github.svg">
-                </a>
             </div>
         </header>
         <div id="main-body">
-            <hr class="styled-hr">
-            <div id="skills">
-                <h2>■ Skills</h2>
-                <ul id="skill-list">
-                    <il class="skill-item">Unity</il>
-                    <il class="skill-item">C#</il>
-                    <il class="skill-item">.NET</il>
-                </ul>
-            </div>
-            <hr class="styled-hr">
-            <div id="projects">
-                <h2>■ Projects</h2>
-             </div>
+            <div id="projects"></div>
         </div>
         
         <footer>
@@ -115,6 +97,12 @@
 
 <template id="TemplateRepoLink">
     <a class="button link-button repo-button" target="_blank" rel="noopener noreferrer" href=""></a>
+</template>
+
+<template id="template-socials-link">
+    <a id="socials-hyperlink" class="media-link" target="_blank" rel="noopener noreferrer" href="">
+        <img id="socials-icon" class="media-icon round" src="">
+    </a>
 </template>
 
 </html>

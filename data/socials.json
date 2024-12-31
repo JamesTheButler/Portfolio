@@ -1,0 +1,19 @@
+{
+    "socials": [
+        {
+            "title" : "LinkedIn",
+            "icon" : "icon_linkedin.png",
+            "url" : "https://www.linkedin.com/in/tom-ille-167753163/"
+        },
+        {
+            "title" : "GitHub",
+            "icon" : "icon_github.svg",
+            "url" : "https://github.com/JamesTheButler"
+        },
+        {
+            "title" : "Resume",
+            "icon" : "cv.png",
+            "url" : "media/CV_Game_Developer_Tom_Ille.pdf"
+        }
+    ]
+}

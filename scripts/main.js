@@ -3,6 +3,7 @@ async function OnPageLoad() {
   ApplyWIPState();
 
   try {
+    await SetUpHome();
     await LoadDescriptionData();
     await LoadProjectData();
   } catch(error) {
