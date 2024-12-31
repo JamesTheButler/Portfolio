@@ -25,7 +25,7 @@ header {
   border-radius: 50%;
 }
 
-div#wip-header {
+div#wip-warning {
   background-color: var(--warning-color-light);
   border-bottom: 2px solid var(--warning-color-dark);
   color: var(--warning-color-dark);
