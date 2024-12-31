@@ -25,6 +25,17 @@ header {
   border-radius: 50%;
 }
 
+div#wip-header {
+  background-color: var(--warning-color-light);
+  border-bottom: 2px solid var(--warning-color-dark);
+  color: var(--warning-color-dark);
+  font-size: large;
+  font-weight: bold;
+  height: 48px;
+  align-content: center;
+  text-align: center;
+}
+
 div.main-container {
   width: 1200;
 }

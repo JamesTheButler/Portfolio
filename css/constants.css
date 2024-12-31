@@ -4,6 +4,8 @@
   --highlight-color-light: #d5e4f3;
   --highlight-color: #2f528f;
   --error-color:rgb(143, 47, 47);
+  --warning-color-light:#FFF9DB;
+  --warning-color-dark:#D4A017;
   --default-distance-small: 0.5rem;
   --default-distance-medium: 1.5rem;
 }
