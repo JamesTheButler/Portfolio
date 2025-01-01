@@ -1,7 +1,20 @@
 async function SetUpHome()
 {
+  await SetUpPageTitle();
   await SetUpProfile();
   await SetUpSocials();
+}
+
+async function SetUpPageTitle() {
+  const projectDataFile = "profile.json";
+  
+  try {
+    const profileData = await LoadData(projectDataFile);
+    
+    document.title = profileData.pagetitle;
+  } catch(error) {
+    console.error(`Failed to load the page title from ${projectDataFile}.`, error);
+  }
 }
 
 async function SetUpProfile() 
