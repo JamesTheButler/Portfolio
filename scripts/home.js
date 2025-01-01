@@ -8,12 +8,10 @@ async function SetUpProfile()
 {
   let profileData;
 
-  try
-  {
+  try {
     profileData = await LoadData("profile.json");
   }
-  catch(error)
-  {
+  catch(error) {
     console.error("Error while setting up profile.", error);
     return;
   }
@@ -28,11 +26,9 @@ async function SetUpProfile()
 async function SetUpSocials() 
 {
   let socialsData;
-  try
-  {
+  try {
     socialsData = await LoadData("socials.json");
-  } catch (error)
-  {
+  } catch (error) {
     console.error(`Failed to load socials.`, error);
     return;
   }

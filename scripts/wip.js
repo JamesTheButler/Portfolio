@@ -1,6 +1,5 @@
 async function ApplyWIPState() {
   let isWip;
-  
   try {
     let config = await GetConfig();
     isWip = config.isWip;

@@ -32,7 +32,7 @@ async function CreateProjectHtml(projectName, IsEven) {
   var projectJsonContent = await LoadData(projectPath);
   console.log("project data json: " + projectJsonContent);
 
-  var templateId = IsEven ? "TemplateProjectEven" : "TemplateProjectOdd";
+  var templateId = IsEven ? "template-project-even" : "template-project-odd";
   var projectElementTemplate = document.getElementById(templateId);
   var projectElement = projectElementTemplate.content.cloneNode(true);
 
@@ -46,7 +46,7 @@ async function CreateProjectHtml(projectName, IsEven) {
 }
 
 function GenerateTagItems(contentObject, mainDivClone) {
-  var tagTemplate = document.getElementById("TemplateTag");
+  var tagTemplate = document.getElementById("template-project-tag");
   for (var i = 0; i < contentObject.tags.length; i++) {
     var tagClone = tagTemplate.content.cloneNode(true);
     tagClone.querySelector("#tag_name").textContent =
@@ -56,7 +56,7 @@ function GenerateTagItems(contentObject, mainDivClone) {
 }
 
 function GenerateLinkButtons(contentObject, mainDivClone) {
-  var linkButtonTemplate = document.getElementById("TemplateRepoLink");
+  var linkButtonTemplate = document.getElementById("template-project-link");
   for (var key in contentObject.links) {
     var linkButtonClone = linkButtonTemplate.content.cloneNode(true);
     linkButtonClone.querySelector(".link-button").href =

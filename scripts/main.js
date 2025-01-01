@@ -1,17 +1,9 @@
 async function OnPageLoad() {
+  await LoadTemplates();
   SetUpScrollToTop();
-
-  try {
-    await ApplyWIPState();
-    await SetUpHome();
-    await LoadProjectData();
-
-  } catch(error) {
-    console.error("Error loading content:", error);
-    if(error.status == "403"){
-      ShowGitHubLimitApology();
-    }
-  }
+  await ApplyWIPState();
+  await SetUpHome();
+  await LoadProjectData();
 }
 
 $(document).ready(OnPageLoad);

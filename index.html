@@ -9,16 +9,17 @@
 
     <title>Portfolio - Tom Ille</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- ** CSS ** -->
+    <!-- bootstrap css -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles -->
     <link href="css/default.css" rel="stylesheet">
     <link href="css/portfolio.css" rel="stylesheet">
     <link href="css/projects.css" rel="stylesheet">
 
+    <!-- ** Scripts ** -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- utils -->
+    <script src="scripts/templates.js"></script>
     <script src="scripts/data.js"></script>
 
     <!-- contents -->
@@ -63,46 +64,5 @@
         </footer>
     </div>
 </body>
-
-<template id="TemplateProjectEven">
-    <hr class="styled-hr">
-    <div class="card flex-lg-row box-shadow h-md-250 project-element project-element-even">
-        <div class="card-body">
-            <h4 class="card-title" id="project_name"></h4>
-            <div class="card-text tag-list small" id="project_tags"></div>
-            <div class="card-text project-desc" id="project_description"></div>
-            <div class="link-buttons"></div>
-        </div>
-        <img class="flex-auto d-md-block project-icon" id="repo-image">
-    </div>
-</template>
-
-<template id="TemplateProjectOdd">
-    <hr class="styled-hr">
-    <div class="card flex-lg-row box-shadow h-md-250 project-element project-element-odd">
-        <img class="flex-auto d-md-block project-icon" id="repo-image">
-        <div class="card-body">
-            <h4 class="card-title" id="project_name"></h4>
-            <div class="card-text tag-list small" id="project_tags"></div>
-            <div class="card-text project-desc" id="project_description"></div>
-            <div class="link-buttons"> </div>
-        </div>
-    </div>
-</template>
-
-<template id="TemplateTag">
-    <div class="tag" id="tag_name"></div>
-</template>
-
-<template id="TemplateRepoLink">
-    <a class="button link-button repo-button" target="_blank" rel="noopener noreferrer" href=""></a>
-</template>
-
-<template id="template-socials-link">
-    <a id="socials-hyperlink" class="media-link" target="_blank" rel="noopener noreferrer" href="">
-        <img id="socials-icon" class="media-icon" src="">
-        <span id="socials-text"></span>
-    </a>
-</template>
 
 </html>
