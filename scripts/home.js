@@ -47,10 +47,9 @@ async function SetUpSocials()
   {
     const template = document.getElementById("template-socials-link");
     let socialLink = template.content.cloneNode(true);
-    let hyperlink = socialLink.querySelector("a#socials-hyperlink");
-    hyperlink.href = socialInfo.url;
-    hyperlink.innerHTML += socialInfo.title;
+    socialLink.querySelector("a#socials-hyperlink").href = socialInfo.url;
     socialLink.querySelector("img#socials-icon").src = "media/" + socialInfo.icon;
-
+    socialLink.querySelector("span#socials-text").innerHTML = socialInfo.title;
+    // add the clone to the doc
     document.getElementById("media-links").appendChild(socialLink);
   }

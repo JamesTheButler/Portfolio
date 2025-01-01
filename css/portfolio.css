@@ -178,6 +178,19 @@ il.skill-item {
   background-color: var(--highlight-color-light);
 }
 
+a#socials-hyperlink
+{
+  gap: 1em;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: var(--highlight-color);
+  color: var(--highlight-color-light);
+  padding: 10px 15px;
+  border-radius: 16px;
+  transition: background-color 0.3s;
+}    
+
 
 /* center about me section */
 @media all and (max-width: 768px) {
